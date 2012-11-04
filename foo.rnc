@@ -1,0 +1,132 @@
+default namespace = "http://www.tei-c.org/ns/1.0"
+
+start =
+  element TEI {
+    element teiHeader {
+      element fileDesc {
+        element titleStmt {
+          element title { text },
+          element author { text }?
+        },
+        element publicationStmt {
+          element authority { xsd:NCName },
+          idno+
+        },
+        element sourceDesc {
+          element msDesc {
+            element msIdentifier { idno },
+            element msContents {
+              element summary { text }?,
+              element msItemStruct {
+                note+,
+                element textLang {
+                  attribute mainLang { xsd:NCName },
+                  attribute otherLangs { xsd:NCName }?,
+                  text
+                }
+              }
+            },
+            element physDesc {
+              element objectDesc {
+                element supportDesc {
+                  element support { text },
+                  element condition { ab+ }?
+                },
+                element layoutDesc {
+                  element layout { ab+ }
+                }?
+              },
+              element handDesc { p }?
+            },
+            element history {
+              element origin {
+                element origDate {
+                  attribute notAfter { xsd:integer }?,
+                  attribute notBefore { xsd:integer }?,
+                  attribute when { xsd:integer }?,
+                  text
+                },
+                element origPlace { text }?,
+                element persName {
+                  attribute type { xsd:NCName },
+                  text
+                }*
+              },
+              element provenance { p }?
+            }
+          }
+        }
+      },
+      element encodingDesc {
+        element classDecl {
+          element taxonomy {
+            attribute xml:id { xsd:NCName },
+            element desc { text }
+          }
+        }
+      },
+      element profileDesc {
+        element langUsage {
+          element language {
+            attribute ident { xsd:NCName },
+            text
+          }+
+        },
+        element textClass {
+          element keywords {
+            attribute scheme { text },
+            element term {
+              attribute type { xsd:NCName }?,
+              text
+            }+
+          }
+        }
+      }
+    },
+    element text {
+      element body {
+        element div {
+          attribute subtype { xsd:NCName }?,
+          attribute type { xsd:NCName },
+          (ab
+           | element figure {
+               element head { text },
+               element figDesc { text },
+               element graphic {
+                 attribute url { xsd:anyURI }
+               }
+             }*),
+          element listBibl {
+            element bibl {
+              attribute type { xsd:NCName }?,
+              (text | note)+
+            }+
+          }?,
+          p?
+        }+
+      }
+    }
+  }
+idno =
+  element idno {
+    attribute type { xsd:NCName },
+    text
+  }
+note =
+  element note {
+    attribute type { xsd:NCName }?,
+    text
+  }
+ab =
+  element ab {
+    attribute type { xsd:NCName }?,
+    text
+  }
+p =
+  element p {
+    (text
+     | element ref {
+         attribute target { xsd:anyURI },
+         text
+       })+
+  }
