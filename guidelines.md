@@ -43,7 +43,7 @@ bibl
 body
 --------------------------------------------
 
-  * context: 
+  * context: text
   * must contain: div+
   * attributes: NONE
 
@@ -103,11 +103,12 @@ figure
   * attributes
     * 
 
-fileDesc
+fileDesc (REQUIRED)
 --------------------------------------------
 
-  * context: 
-  * must contain: publicationStmt, sourceDesc, titleStmt
+  * context: teiHeader
+  * must contain: titleStmt, publicationStmt, sourceDesc
+  * attributes: NONE
 
 graphic
 --------------------------------------------
@@ -141,10 +142,16 @@ history
 idno
 --------------------------------------------
 
-  * context: 
+  * context: publicationStmt
   * must contain: text()
   * attributes: 
-    * REQUIRED type="apisID|controlNo|ddbdp|invNo"
+    * REQUIRED type="apisid|controlNo|ddbdp|invNo"
+
+idno@type=apisid (REQUIRED)
+--------------------------------------------
+
+> see idno
+
 
 keywords
 --------------------------------------------
@@ -374,9 +381,8 @@ teiHeader (REQUIRED)
 --------------------------------------------
 
   * context: TEI
-  * may contain: 
-  * attributes
-    * 
+  * must contain: fileDesc, encodingDesc, profileDesc
+  * attributes: NONE
 
 term
 --------------------------------------------
@@ -389,10 +395,9 @@ term
 text (REQUIRED)
 --------------------------------------------
 
-  * context: body
-  * may contain: 
-  * attributes
-    * 
+  * context: TEI
+  * must contain: body
+  * attributes: NONE
 
 textClass
 --------------------------------------------
@@ -410,19 +415,17 @@ textLang
   * attributes
     * 
 
-title
+title (REQUIRED)
 --------------------------------------------
 
-  * context: 
-  * may contain: 
-  * attributes
-    * 
+  * context: titleStmt
+  * must contain: text()
+  * attributes: NONE
 
-titleStmt
+titleStmt (REQUIRED)
 --------------------------------------------
 
-  * context: 
-  * may contain: 
-  * attributes
-    * 
+  * context: fileDesc
+  * must contain: title, author*
+  * attributes: NONE
 
