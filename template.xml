@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="./template-schema.rnc" type="application/relax-ng-compact-syntax"?>
+<!-- 
+template.xml
+template for APIS/EpiDoc records
+-->
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title></title>
+                <author></author>
+            </titleStmt>
+            <publicationStmt>
+                <authority>APIS</authority>
+                <idno type=""></idno>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <idno type=""></idno>
+                    </msIdentifier>
+                    <msContents>
+                        <summary></summary>
+                        <msItemStruct>
+                            <note></note>
+                            <textLang mainLang=""></textLang>
+                        </msItemStruct>
+                    </msContents>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <support></support>
+                                <condition>
+                                    <ab></ab>
+                                </condition>
+                            </supportDesc>
+                            <layoutDesc>
+                                <layout>
+                                    <ab></ab>
+                                </layout>
+                            </layoutDesc>
+                        </objectDesc>
+                        <handDesc>
+                            <p></p>
+                        </handDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <origDate></origDate>
+                            <origPlace></origPlace>
+                            <persName type=""></persName>
+                        </origin>
+                        <provenance>
+                            <p></p>
+                        </provenance>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <classDecl>
+                <taxonomy xml:id="">
+                    <desc>APIS keywords are controlled locally at the institution level. They are not necessarily consistent.</desc>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident=""></language>
+            </langUsage>
+            <textClass>
+                <keywords scheme="">
+                    <term></term>
+                </keywords>
+            </textClass>
+        </profileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div type="bibliography">
+                <!-- optional if data is available -->
+            </div>
+            <div type="figure">
+                <!-- optional if images are available online outside papyri.info -->
+            </div>
+            <div type="translation">
+                <!-- optional if translation is available -->
+                
+            </div>
+        </body>
+    </text>
+</TEI>
